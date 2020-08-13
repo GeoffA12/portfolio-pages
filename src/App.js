@@ -1,17 +1,18 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import PrimaryAppBar from './PrimaryAppBar';
-import Biography from './components/biography/Biography';
+import AboutMe from './components/about/AboutMe';
 import Landing from './components/landing/Landing';
+import Experience from './components/experience/Experience';
 
 const App = () => {
-  
   return (
     <div>
       <PrimaryAppBar />
       <Switch>
         <Route exact path="/" component={Landing} />
-        <Route exact path="/biography" component={Biography} />
+        <Route exact path="/aboutMe" component={AboutMe} />
+        <Route exact path="/experience" component={Experience} />
       </Switch>
     </div>
   );

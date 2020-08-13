@@ -31,7 +31,6 @@ const MenuButton = ({ history }) => {
         setOpen((prevOpen) => !prevOpen)  
     }
 
-    // TODO: Implement the router links here? Should be able to get the event.target.value or name and switch links based on clicked item
     function handleClose({ target }) {
         if (anchorRef.current && anchorRef.current.contains(target)) {
             return;
@@ -39,8 +38,11 @@ const MenuButton = ({ history }) => {
         if (target.attributes.name) {
             const name = target.attributes.name.textContent;
             switch(name) {
-            case 'biography':
-                history.push('/biography');
+            case 'aboutMe':
+                history.push('/aboutMe');
+                break;
+            case 'experience':
+                history.push('/experience');
                 break;
             default:
                 break;
@@ -79,9 +81,8 @@ const MenuButton = ({ history }) => {
                 <Paper>
                     <ClickAwayListener onClickAway={handleClose}>
                     <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                        <MenuItem onClick={handleClose} name="biography">Biography</MenuItem>
-                        <MenuItem onClick={handleClose} name="internships">Internships</MenuItem>
-                        <MenuItem onClick={handleClose} name="projects">Projects</MenuItem>
+                        <MenuItem onClick={handleClose} name="aboutMe">About Me</MenuItem>
+                        <MenuItem onClick={handleClose} name="experience">Experience</MenuItem>
                     </MenuList>
                     </ClickAwayListener>
                 </Paper>

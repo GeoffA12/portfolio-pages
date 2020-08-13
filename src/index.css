@@ -1,9 +1,14 @@
 * {
-    box-sizing: 'border-box';
+    box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
+/* TODO: Add More styling to the background, maybe a gradient rule to spice things up. */
 body {
     background: rgb(192, 224, 237)
+}
+
+a {
+    color: inherit;
 }
