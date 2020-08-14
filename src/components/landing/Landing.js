@@ -13,7 +13,7 @@ const useStyles = makeStyles(({spacing}) => ({
         marginTop: spacing(4)
     },
     profilePicture: {
-        height: '80vh',
+        height: '90vh',
         width: '100%',
         objectFit: 'cover'
     },
@@ -104,7 +104,7 @@ const Landing = () => {
                     <Paper>
                         <div className={classes.imageContainer}>    
                             <img className={classes.profilePicture} 
-                            src="http://images.pixieset.com/6157811/03c466fef5842318a6296a89d6020128-xlarge.jpg" 
+                            src="https://i.imgur.com/2pZ7U4A.jpg" 
                             alt="Geoff Arroyo Profile" />
 
                             <div className={classes.imageTextBox}>
