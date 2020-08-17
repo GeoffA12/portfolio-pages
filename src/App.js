@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import PrimaryAppBar from './PrimaryAppBar';
+import PrimaryAppBar from './common/components/PrimaryAppBar';
 import AboutMe from './components/about/AboutMe';
 import Landing from './components/landing/Landing';
 import Experience from './components/experience/Experience';

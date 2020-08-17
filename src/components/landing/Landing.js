@@ -150,7 +150,7 @@ const Landing = () => {
                             </div>
                             <div className={classes.flexCol}>
                                 <IconButton color="inherit">
-                                    <a href="https://github.com/GeoffA12" target="_blank" rel="noopener noreferrer">
+                                    <a href="https://www.linkedin.com/in/geoff-arroyo-4159ab1b1/" target="_blank" rel="noopener noreferrer">
                                         <LinkedInIcon className={classes.linkedin} />
                                     </a>
                                 </IconButton>   

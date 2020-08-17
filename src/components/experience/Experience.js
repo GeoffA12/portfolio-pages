@@ -3,38 +3,15 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { Card, CardContent } from '@material-ui/core';
+import { sharedStyles } from '../../common/styles/SharedStyles';
 
 const useStyles = makeStyles(({spacing}) => ({
-    experienceHeaderContainer: {
-        marginTop: spacing(2),
-    },
-    experienceHeaderText: {
-        fontSize: '2.6em',
-        fontWeight: 'bold',
-        marginLeft: spacing(3),
-        marginBottom: spacing(2),
-        paddding: spacing(2),
-        fontFamily: 'Quicksand, sans-serif'
-    },
-    experiencePaperContainer: {
-        marginLeft: spacing(3),
-        marginRight: spacing(3),
-        background: '#324a54',
-    },
     experienceJobTitle: {
         fontSize: '2em',
         padding: spacing(2),
         marginTop: spacing(1),
         fontFamily: 'Quicksand, sans-serif',
         color: 'rgb(192, 224, 237)'
-    },
-    experienceJobText: {
-        fontSize: '1.3em',
-        color: 'white',
-        fontFamily: 'Roboto, sans-serif',
-        marginTop: spacing(1),
-        padding: spacing(1),
-        lineHeight: '44px'
     },
     amazonLogo: {
         width: 'auto',
@@ -43,10 +20,6 @@ const useStyles = makeStyles(({spacing}) => ({
         display: 'inline'
     },
     
-    projectsHeaderContainer: {
-        marginTop: spacing(4),
-        marginBottom: spacing(2)
-    },
     projectCardGrid: {
         marginRight: spacing(3),
         marginLeft: spacing(3),
@@ -83,31 +56,31 @@ const useStyles = makeStyles(({spacing}) => ({
 
 const Experience = () => {
     const classes = useStyles();
-
+    const sharedClasses = sharedStyles();
     return (
         <>
             <Grid container direction="column">
-                <Grid item xs className={classes.experienceHeaderContainer}>
-                    <Typography className={classes.experienceHeaderText}>
+                <Grid item xs className={sharedClasses.headerTextContainer}>
+                    <Typography className={sharedClasses.headerText}>
                         Experience
                     </Typography>
                 </Grid>
                 <Grid item xs>
-                    <Card className={classes.experiencePaperContainer}>
+                    <Card className={sharedClasses.paperTextContainer}>
                         <CardContent>
                             <Typography className={classes.experienceJobTitle}>
                                 <img src="https://www.shareicon.net/data/2048x2048/2016/06/19/606232_amazon_4096x4096.png" alt="amazon logo" className={classes.amazonLogo} />
                                 Amazon.com - Software Development Engineer Intern
                             </Typography>
 
-                            <Typography className={classes.experienceJobText}>
+                            <Typography className={sharedClasses.paperText}>
                                 Over the Summer of 2020 while at Amazon, a solid foundation of the software development lifecycle and service-oriented architecture was set in place. 
                                 During my time at Amazon I designed, implemented, and tested an accommodations tool for Amazon fulfillment center associates to use upon workplace injury.
                                 While building the accommodations API's, I was introduced to using a native AWS stack with DynamoDB, AWS API Gateway, and AWS AppSync to 
                                 support my microservices and business logic. I also built an accommodations UI on my team's existing product. The UI components were built 
                                 using React to support text internationalization, user profile integration, and responsive design. 
                             </Typography>
-                            <Typography className={classes.experienceJobText}>
+                            <Typography className={sharedClasses.paperText}>
                                 General understanding of good programming practice was developed through code review feedback from senior engineers on the team
                                 who left comments on my pull requests. As part of the internship I also wrote a design document for 
                                 senior engineers on the team to review. A transition document was written to help onboard other engineers into the 
@@ -117,11 +90,11 @@ const Experience = () => {
                             <img src="https://res-2.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco/kptprz3bd0alibati6j9" alt="esimi logo" className={classes.amazonLogo} />
                                 ESiMi - UI/UX Design Intern
                             </Typography>
-                            <Typography className={classes.experienceJobText}>
+                            <Typography className={sharedClasses.paperText}>
                                 ESiMi is a startup building ambient-energy devices like bike lights which aren't powered by batteries but through the vibrations of the bike on the road.
                                 Working for a clean-tech startup like ESiMi introduced me to a wide variety of technical roles.
                             </Typography>  
-                            <Typography className={classes.experienceJobText}>
+                            <Typography className={sharedClasses.paperText}>
                                 I helped bulid the startup logo design and social media profile headers on the ESiMi Facebook and Twitter accounts prior to our demo at CES 2018 in Las Vegas. 
                                 Using Adobe Photoshop, I mocked UI landing and biography pages for the startup site and implemented a startup business card design and t-shirt.
                                 Another project I worked on was filming and editing the company Shark Tank Audition video after our startup had made it to the second round of 
@@ -130,8 +103,8 @@ const Experience = () => {
                         </CardContent>
                     </Card>
                 </Grid>
-                <Grid item xs className={classes.projectsHeaderContainer}>
-                    <Typography className={classes.experienceHeaderText}>
+                <Grid item xs className={sharedClasses.headerTextContainer}>
+                    <Typography className={sharedClasses.headerText}>
                         Personal Projects
                     </Typography>
                 </Grid>
@@ -145,7 +118,7 @@ const Experience = () => {
                                 <a href="https://codepen.io/geoff-arroyo/full/WBJNvb" target="_blank" rel="noopener noreferrer">
                                     <img src='https://res.cloudinary.com/geoffj7/image/upload/v1562230466/ProductLandingPage2_clei1m.jpg' alt="Product landing page preview" className={classes.projectImgStyle} />
                                     <div className={classes.captionContainer}>
-                                        <Typography className={classes.experienceJobText}>
+                                        <Typography className={sharedClasses.paperText}>
                                             Product Landing Page
                                         </Typography>
                                     </div>
@@ -159,7 +132,7 @@ const Experience = () => {
                                 <a href="https://codepen.io/geoff-arroyo/full/zQyeoz" target="_blank" rel="noopener noreferrer">
                                     <img src="https://res.cloudinary.com/geoffj7/image/upload/v1562230522/TechnicalDocumentation2_ocfu6a.jpg" alt="Tech doc preview" className={classes.projectImgStyle} />
                                         <div className={classes.captionContainer}>
-                                            <Typography className={classes.experienceJobText}>
+                                            <Typography className={sharedClasses.paperText}>
                                                 Technical Documentation Page
                                             </Typography>
                                         </div>
@@ -173,7 +146,7 @@ const Experience = () => {
                                 <a href="https://codepen.io/candy4all-432/full/rgwzYJ" target="_blank" rel="noopener noreferrer">
                                     <img src='https://res.cloudinary.com/geoffj7/image/upload/v1562230522/TributePage2_ju5a7m.jpg' alt="Tribute page preview" className={classes.projectImgStyle} />
                                             <div className={classes.captionContainer}>
-                                                <Typography className={classes.experienceJobText}>
+                                                <Typography className={sharedClasses.paperText}>
                                                     Tribute Page
                                                 </Typography>
                                             </div>
@@ -190,7 +163,7 @@ const Experience = () => {
                                 <a href="https://www.researchgate.net/publication/333005159_Pair_Programming_in_the_Classroom_How_can_collaborative_exercises_be_further_extended_into_educational_environments" target="_blank" rel="noopener noreferrer">
                                     <img src="https://res.cloudinary.com/geoffj7/image/upload/v1569214669/researchPreview_wyxf3e.jpg" alt="Research article preview" className={classes.projectImgStyle} />
                                     <div className={classes.captionContainer}>
-                                        <Typography className={classes.experienceJobText}>
+                                        <Typography className={sharedClasses.paperText}>
                                             Research Article
                                         </Typography>
                                     </div>
@@ -204,7 +177,7 @@ const Experience = () => {
                                 <a href="https://www.youtube.com/watch?v=QHPxbUbtfiY&feature=youtu.be" target="_blank" rel="noopener noreferrer">
                                     <img src='https://res.cloudinary.com/geoffj7/image/upload/v1562230521/EsimiLogo1_ewnbjv.jpg' alt="ESiMi logo" className={classes.projectImgStyle} />
                                     <div className={classes.captionContainer}>
-                                        <Typography className={classes.experienceJobText}>
+                                        <Typography className={sharedClasses.paperText}>
                                             ESiMi Shark Tank Audition
                                         </Typography>
                                     </div>
@@ -214,8 +187,8 @@ const Experience = () => {
                     </Grid>
                     {/* TODO: Add CRWN-clothing react project once it's cleaned up and looking good, or other FCC react projects */}
                 </Grid>
-                <Grid item xs className={classes.projectsHeaderContainer}>
-                    <Typography className={classes.experienceHeaderText}>
+                <Grid item xs className={sharedClasses.headerTextContainer}>
+                    <Typography className={sharedClasses.headerText}>
                         Most familiar programming languages and technologies
                     </Typography>
                     
