@@ -2,7 +2,7 @@
   "name": "portfolio-pages",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://GeoffA12.github.io/portfolio-pages",
+  "homepage": "https://GeoffA12.github.io",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
