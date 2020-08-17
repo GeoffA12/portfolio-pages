@@ -10,7 +10,7 @@ const App = () => {
     <div>
       <PrimaryAppBar />
       <Switch>
-        <Route exact path="/" component={Landing} />
+        <Route exact path="/portfolio-pages" component={Landing} />
         <Route exact path="/aboutMe" component={AboutMe} />
         <Route exact path="/experience" component={Experience} />
       </Switch>

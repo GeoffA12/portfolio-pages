@@ -38,7 +38,7 @@ const PrimaryAppBar = () => {
                             <MenuButton />
                         </Grid>
                         <Grid item xs={false}>
-                            <Link to="/">
+                            <Link to="/portfolio-pages">
                                 <IconButton className={classes.home}>
                                     <HomeIcon />
                                 </IconButton>
