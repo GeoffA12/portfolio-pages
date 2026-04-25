@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { withRouter } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import Popper from '@material-ui/core/Popper';
@@ -22,8 +22,9 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-const MenuButton = ({ history }) => {
+const MenuButton = () => {
     const classes = useStyles();
+    const navigate = useNavigate();
     const [open, setOpen] = useState(false);
     const anchorRef = React.useRef(null);
 
@@ -39,10 +40,10 @@ const MenuButton = ({ history }) => {
             const name = target.attributes.name.textContent;
             switch(name) {
             case 'aboutMe':
-                history.push('/aboutMe');
+                navigate('/aboutMe');
                 break;
             case 'experience':
-                history.push('/experience');
+                navigate('/experience');
                 break;
             default:
                 break;
@@ -93,4 +94,4 @@ const MenuButton = ({ history }) => {
     );
 };
 
-export default withRouter(MenuButton);
+export default MenuButton;
