@@ -1,36 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import HomeIcon from '@material-ui/icons/Home';
+import Grid from '@mui/material/Grid';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import HomeIcon from '@mui/icons-material/Home';
 import MenuButton from './MenuButton';
-import { Typography } from '@material-ui/core';
-
-const useStyles = makeStyles(({ spacing }) => ({
-    root: {
-        flexGrow: 1,
-    },
-    menuButton: {
-        marginRight: spacing(2)
-    },
-    home: {
-        flexGrow: 1,
-        color: 'white'
-    },
-    emailSpacing: {
-        marginTop: spacing(1.5),
-        marginRight: 'auto'
-    }
-}));
 
 const PrimaryAppBar = () => {
-    const classes = useStyles();
-
     return (
-        <div className={classes.root}>
+        <div>
             <AppBar position="static">
                 <Toolbar>
                     <Grid container spacing={0}>
@@ -39,7 +19,7 @@ const PrimaryAppBar = () => {
                         </Grid>
                         <Grid item xs={false}>
                             <Link to="/">
-                                <IconButton className={classes.home}>
+                                <IconButton sx={{ color: 'white' }}>
                                     <HomeIcon />
                                 </IconButton>
                             </Link>
@@ -47,7 +27,7 @@ const PrimaryAppBar = () => {
                         <Grid item xs={9}>
                         </Grid>
                         <Grid item xs={1}>
-                            <Typography className={classes.emailSpacing}>
+                            <Typography sx={{ mt: 1.5, mr: 'auto' }}>
                                 Geoffarroyo@gmail.com
                             </Typography>
                         </Grid>
