@@ -34,3 +34,17 @@ This is a React 16 single-page portfolio site deployed to GitHub Pages. Routing 
 **Styling approach:** Material UI v4 (`@material-ui/core`) with `makeStyles`/`useStyles` throughout. No CSS modules or styled-components. Color palette centers on `#324a54` (dark teal card backgrounds). Font families are `Quicksand` (headings) and `Roboto` (body).
 
 **Navigation:** `PrimaryAppBar` (`src/common/components/PrimaryAppBar.js`) renders a persistent top bar with a drawer (`MenuButton`) for page navigation and a home `IconButton` linking to `/portfolio-pages`.
+
+## Agent skills
+
+### Issue tracker
+
+Issues live in GitHub Issues (`GeoffA12/portfolio-pages`). See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Default canonical label strings (`needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`). See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context repo — `CONTEXT.md` + `docs/adr/` at the repo root. See `docs/agents/domain.md`.
