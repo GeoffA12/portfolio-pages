@@ -4,21 +4,23 @@
   "private": true,
   "homepage": "https://GeoffA12.github.io/portfolio-pages",
   "dependencies": {
-    "@mui/material": "^5.17.1",
-    "@mui/icons-material": "^5.17.1",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^5.17.1",
+    "@mui/material": "^5.17.1",
+    "@vitejs/plugin-react": "^4.4.1",
     "gh-pages": "^6.3.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.5.1",
-    "vite": "^6.3.2",
-    "@vitejs/plugin-react": "^4.4.1"
+    "vite": "^6.3.2"
   },
   "scripts": {
     "start": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
@@ -33,5 +35,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/react-dom": "^19.2.3",
+    "jsdom": "^29.1.0",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.5"
   }
 }
