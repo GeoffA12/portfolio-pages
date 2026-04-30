@@ -1,7 +1,7 @@
-import React from 'react';
-import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
-import { headerTextContainerSx, paperTextContainerSx, headerTextSx, paperTextSx } from '../../common/styles/SharedStyles';
+import React from 'react'
+import Grid from '@mui/material/Grid'
+import Typography from '@mui/material/Typography'
+import { headerTextContainerSx, paperTextContainerSx, headerTextSx, paperTextSx } from '../../common/styles/SharedStyles'
 
 const AboutMe = () => {
     return (
@@ -38,7 +38,7 @@ const AboutMe = () => {
                 </Grid>
             </Grid>
         </>
-    );
-};
+    )
+}
 
-export default AboutMe;
+export default AboutMe
