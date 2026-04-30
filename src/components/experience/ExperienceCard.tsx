@@ -1,17 +1,25 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Grid from '@mui/material/Grid';
+import React from 'react'
+import Grid from '@mui/material/Grid'
+
+export interface TechImage {
+    imgSrc: string
+    imgAlt: string
+}
+
+interface Props {
+    imageArray: TechImage[]
+}
 
 const techImgStyle = {
     height: '37vh',
     width: '100%',
-    objectFit: 'cover',
+    objectFit: 'cover' as const,
     border: '2px solid #324a54',
     borderRadius: '3px'
-};
+}
 
 // TODO: Dangerous use of hard-coding imageArray index in this component. Is there a way we can get around this?
-const ExperienceCard = ({ imageArray }) => {
+const ExperienceCard = ({ imageArray }: Props) => {
     return(
         <>
             <Grid item xs={3} sx={{ mr: 3, ml: 3 }}>
@@ -24,11 +32,7 @@ const ExperienceCard = ({ imageArray }) => {
                 <img src={imageArray[2].imgSrc} alt={imageArray[2].imgAlt} style={techImgStyle} />
             </Grid>
         </>
-    );
+    )
 }
 
-ExperienceCard.propTypes = {
-    imageArray: PropTypes.array.isRequired
-};
-
-export default ExperienceCard;
+export default ExperienceCard
