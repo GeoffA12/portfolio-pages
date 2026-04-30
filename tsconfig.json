@@ -5,8 +5,6 @@
     "module": "ESNext",
     "moduleResolution": "bundler",
     "jsx": "react-jsx",
-    "allowJs": true,
-    "checkJs": false,
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
