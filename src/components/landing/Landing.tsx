@@ -1,11 +1,11 @@
-import React from 'react';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import GithubIcon from '@mui/icons-material/GitHub';
+import React from 'react'
+import Paper from '@mui/material/Paper'
+import Grid from '@mui/material/Grid'
+import Typography from '@mui/material/Typography'
+import IconButton from '@mui/material/IconButton'
+import LinkedInIcon from '@mui/icons-material/LinkedIn'
+import FacebookIcon from '@mui/icons-material/Facebook'
+import GithubIcon from '@mui/icons-material/GitHub'
 
 const Landing = () => {
     return (
@@ -87,7 +87,7 @@ const Landing = () => {
                 <Grid item xs={3} />
             </Grid>
         </>
-    );
-};
+    )
+}
 
-export default Landing;
+export default Landing
