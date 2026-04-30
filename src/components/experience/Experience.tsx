@@ -1,13 +1,28 @@
-import React from 'react';
-import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import { headerTextContainerSx, paperTextContainerSx, headerTextSx, paperTextSx } from '../../common/styles/SharedStyles';
-import CardRow from './CardRow';
+import React from 'react'
+import Grid from '@mui/material/Grid'
+import Typography from '@mui/material/Typography'
+import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
+import { headerTextContainerSx, paperTextContainerSx, headerTextSx, paperTextSx } from '../../common/styles/SharedStyles'
+import CardRow from './CardRow'
+import type { ProjectImage } from './ProjectCard'
+import type { TechImage } from './ExperienceCard'
+
+function normalizeImageData<T>(arr: T[]): T[][] {
+    const nestedImageData: T[][] = []
+    let nestedImageCounter = -1
+    for (let x = 0; x < arr.length; ++x) {
+        if (x % 3 === 0) {
+            nestedImageData.push([])
+            nestedImageCounter++
+        }
+        nestedImageData[nestedImageCounter].push(arr[x])
+    }
+    return nestedImageData
+}
 
 const Experience = () => {
-    const projectImageData = [
+    const projectImageData: ProjectImage[] = [
         {
             imgSrc: 'https://res.cloudinary.com/geoffj7/image/upload/v1562230466/ProductLandingPage2_clei1m.jpg',
             imgAlt: 'Product landing page preview',
@@ -38,9 +53,9 @@ const Experience = () => {
             link: 'https://www.youtube.com/watch?v=QHPxbUbtfiY&feature=youtu.be',
             text: 'ESiMi Shark Tank Audition Video'
         }
-    ];
+    ]
 
-    const experienceImageData = [
+    const experienceImageData: TechImage[] = [
         { imgSrc: 'https://i.imgur.com/WS2N5Gx.png', imgAlt: 'Git logo' },
         { imgSrc: 'https://i.imgur.com/8VH4cGr.jpg', imgAlt: 'AWS logo' },
         { imgSrc: 'https://i.imgur.com/ZKkBc1J.jpg', imgAlt: 'Java logo' },
@@ -50,20 +65,7 @@ const Experience = () => {
         { imgSrc: 'https://i.imgur.com/IQE5DJA.png', imgAlt: 'Docker logo' },
         { imgSrc: 'https://i.imgur.com/e8Bvv9E.png', imgAlt: 'Java spring logo' },
         { imgSrc: 'https://i.imgur.com/TOnpZc9.png', imgAlt: 'MySQL logo' }
-    ];
-
-    function normalizeProjectImageData(arr) {
-        let nestedImageData = [];
-        let nestedImageCounter = -1;
-        for (let x = 0; x < arr.length; ++x) {
-            if (x % 3 === 0) {
-                nestedImageData.push([]);
-                nestedImageCounter++;
-            }
-            nestedImageData[nestedImageCounter].push(arr[x]);
-        }
-        return nestedImageData;
-    }
+    ]
 
     return (
         <>
@@ -115,7 +117,7 @@ const Experience = () => {
                 </Grid>
 
                 <CardRow
-                    nestedImageArray={normalizeProjectImageData(projectImageData)}
+                    nestedImageArray={normalizeImageData(projectImageData)}
                     cardType={'Project'}
                 />
 
@@ -126,12 +128,12 @@ const Experience = () => {
                 </Grid>
 
                 <CardRow
-                    nestedImageArray={normalizeProjectImageData(experienceImageData)}
+                    nestedImageArray={normalizeImageData(experienceImageData)}
                     cardType={'Experience'}
                 />
             </Grid>
         </>
-    );
-};
+    )
+}
 
-export default Experience;
+export default Experience

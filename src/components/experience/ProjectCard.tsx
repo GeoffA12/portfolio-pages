@@ -1,12 +1,22 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
-import { paperTextSx } from '../../common/styles/SharedStyles';
+import React from 'react'
+import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
+import Grid from '@mui/material/Grid'
+import Typography from '@mui/material/Typography'
+import { paperTextSx } from '../../common/styles/SharedStyles'
 
-const ProjectCard = ({ image }) => {
+export interface ProjectImage {
+    imgSrc: string
+    imgAlt: string
+    link: string
+    text: string
+}
+
+interface Props {
+    image: ProjectImage
+}
+
+const ProjectCard = ({ image }: Props) => {
     return(
         <Grid item xs={3} sx={{ mr: 3, ml: 3 }}>
             <Card sx={{ height: '60vh', width: 'auto', display: 'flex', flexDirection: 'column', background: '#324a54' }}>
@@ -22,11 +32,7 @@ const ProjectCard = ({ image }) => {
                 </CardContent>
             </Card>
         </Grid>
-    );
+    )
 }
 
-ProjectCard.propTypes = {
-    image: PropTypes.object.isRequired
-}
-
-export default ProjectCard;
+export default ProjectCard
