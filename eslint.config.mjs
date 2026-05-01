@@ -32,5 +32,14 @@ export default tseslint.config(
       },
     },
   },
+  {
+    files: ['tst/**/*.{ts,tsx}'],
+    languageOptions: {
+      parserOptions: {
+        project: './tsconfig.test.json',
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
+  },
   eslintConfigPrettier,
 );
