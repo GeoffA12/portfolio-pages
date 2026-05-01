@@ -13,7 +13,7 @@ A React single-page portfolio site deployed to GitHub Pages.
 ## Glossary
 
 ### ESLint
-Deferred to a follow-up issue. A `// TODO: add ESLint + @typescript-eslint` comment will be left in `vite.config.ts` as a reminder. `tsc --noEmit` is the only static analysis gate during the migration.
+Configured via flat config (`eslint.config.mjs`). Uses typescript-eslint's `recommendedTypeChecked` + `strictTypeChecked` presets (not `stylistic` — Prettier owns formatting; `stylistic` adds cosmetic noise without substantive value). Type-aware linting is enabled via a `tsconfig.eslint.json` that extends the main `tsconfig.json` and adds root config files. `eslint-config-prettier` is applied last to disable rules that conflict with Prettier. Prettier runs as a standalone script (`format:check`) — not as an ESLint rule — keeping lint and formatting concerns independent. All lint and formatting violations are fixed upfront in the same PR that introduces the tooling — no baseline suppression files. Verification gate updated to: `npm run build && tsc --noEmit && npm test -- --run && npm run lint && npm run format:check`. ESLint config also includes `eslint-plugin-react` and `eslint-plugin-react-hooks` (for `rules-of-hooks` and `exhaustive-deps`).
 
 ### PropTypes
 Removed when each file is converted. Replaced with a TypeScript `interface Props { ... }`. No runtime validation needed — this is a standalone portfolio site with no external consumers.
