@@ -8,14 +8,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 npm start           # Start dev server at localhost:3000 (Vite)
 npm run build       # Production build (runs typecheck + lint + format:check first)
 npm run preview     # Preview production build locally
-npm test            # Run tests (Vitest + React Testing Library)
+npm test            # Run tests non-watch (vitest run) — suitable for CI
 npm run typecheck   # TypeScript type-check without emitting
 npm run lint        # ESLint (src/)
 npm run lint:fix    # ESLint with auto-fix
 npm run format      # Prettier write
 npm run format:check  # Prettier check (CI)
-npm run deploy      # Build + deploy to GitHub Pages (GeoffA12.github.io/portfolio-pages)
 ```
+
+Deploy is via GitHub Actions / GitHub Pages (`.github/workflows/deploy.yml`): CI on push/PR to `master`; deploy on push to `master` only.
 
 To run a single test file:
 ```bash

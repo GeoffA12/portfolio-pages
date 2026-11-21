@@ -2,14 +2,12 @@
   "name": "portfolio-pages",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://GeoffA12.github.io/portfolio-pages",
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@mui/icons-material": "^5.17.1",
     "@mui/material": "^5.17.1",
     "@vitejs/plugin-react": "^4.4.1",
-    "gh-pages": "^6.3.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.5.1",
@@ -20,15 +18,13 @@
     "prebuild": "npm run typecheck && npm run lint && npm run format:check",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "vitest",
+    "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "typecheck": "tsc --noEmit && tsc --noEmit -p tsconfig.test.json",
     "lint": "eslint src tst",
     "lint:fix": "eslint src tst --fix",
     "format": "prettier --write src tst",
-    "format:check": "prettier --check src tst",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "format:check": "prettier --check src tst"
   },
   "browserslist": {
     "production": [
