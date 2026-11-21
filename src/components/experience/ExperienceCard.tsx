@@ -18,31 +18,14 @@ const techImgStyle = {
   borderRadius: '3px',
 };
 
-// TODO: Dangerous use of hard-coding imageArray index in this component. Is there a way we can get around this?
 const ExperienceCard = ({ imageArray }: Props) => {
   return (
     <>
-      <Grid item xs={3} sx={{ mr: 3, ml: 3 }}>
-        <img
-          src={imageArray[0].imgSrc}
-          alt={imageArray[0].imgAlt}
-          style={techImgStyle}
-        />
-      </Grid>
-      <Grid item xs={4} sx={{ mr: 3, ml: 3 }}>
-        <img
-          src={imageArray[1].imgSrc}
-          alt={imageArray[1].imgAlt}
-          style={techImgStyle}
-        />
-      </Grid>
-      <Grid item xs={3} sx={{ mr: 3, ml: 3 }}>
-        <img
-          src={imageArray[2].imgSrc}
-          alt={imageArray[2].imgAlt}
-          style={techImgStyle}
-        />
-      </Grid>
+      {imageArray.map((image, index) => (
+        <Grid key={index} item xs={3} sx={{ mr: 3, ml: 3 }}>
+          <img src={image.imgSrc} alt={image.imgAlt} style={techImgStyle} />
+        </Grid>
+      ))}
     </>
   );
 };
