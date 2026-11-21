@@ -39,13 +39,21 @@ describe('Landing', () => {
       ).toBeInTheDocument();
     });
 
-    it('renders the Experience section with both internship entries', () => {
+    it('renders the Experience section with current roles', () => {
       renderLanding();
       expect(screen.getByText('Experience:')).toBeInTheDocument();
-      expect(screen.getByText('Amazon SDE Internship')).toBeInTheDocument();
+      expect(screen.getByText('Amazon SDE II')).toBeInTheDocument();
+      expect(screen.getByText('Ito.ai Software Engineer')).toBeInTheDocument();
+    });
+
+    it('does not render outdated internship experience lines', () => {
+      renderLanding();
       expect(
-        screen.getByText('ESiMi UI/UX Design Internship'),
-      ).toBeInTheDocument();
+        screen.queryByText('Amazon SDE Internship'),
+      ).not.toBeInTheDocument();
+      expect(
+        screen.queryByText('ESiMi UI/UX Design Internship'),
+      ).not.toBeInTheDocument();
     });
   });
 

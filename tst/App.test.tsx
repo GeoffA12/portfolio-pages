@@ -27,6 +27,12 @@ describe('App routing', () => {
     expect(screen.getByText('Experience')).toBeInTheDocument();
   });
 
+  it('renders the Personal Projects page at "/personalProjects"', () => {
+    renderAt('/personalProjects');
+    expect(screen.getByText('Personal Projects')).toBeInTheDocument();
+    expect(screen.getByText('Coming soon.')).toBeInTheDocument();
+  });
+
   it('always renders the PrimaryAppBar on every route', () => {
     renderAt('/');
     expect(screen.getByText('Geoffarroyo@gmail.com')).toBeInTheDocument();

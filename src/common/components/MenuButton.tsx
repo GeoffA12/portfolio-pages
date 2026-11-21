@@ -102,6 +102,13 @@ const MenuButton = () => {
                   >
                     Experience
                   </MenuItem>
+                  <MenuItem
+                    onClick={() => {
+                      navigateAndClose('/personalProjects');
+                    }}
+                  >
+                    Personal Projects
+                  </MenuItem>
                 </MenuList>
               </ClickAwayListener>
             </Paper>

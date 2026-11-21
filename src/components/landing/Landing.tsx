@@ -17,7 +17,7 @@ const Landing = () => {
             <div style={{ position: 'relative' }}>
               <img
                 style={{ height: '90vh', width: '100%', objectFit: 'cover' }}
-                src='https://i.imgur.com/2pZ7U4A.jpg'
+                src='https://i.imgur.com/RUTL2hJ.jpg'
                 alt='Geoff Arroyo Profile'
               />
               <div
@@ -95,12 +95,12 @@ const Landing = () => {
                 <Typography
                   sx={{ fontSize: '.8em', color: 'black', textAlign: 'center' }}
                 >
-                  Amazon SDE Internship
+                  Amazon SDE II
                 </Typography>
                 <Typography
                   sx={{ fontSize: '.8em', color: 'black', textAlign: 'center' }}
                 >
-                  ESiMi UI/UX Design Internship
+                  Ito.ai Software Engineer
                 </Typography>
               </div>
             </div>

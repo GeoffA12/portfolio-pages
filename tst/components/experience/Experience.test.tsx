@@ -18,84 +18,122 @@ describe('Experience', () => {
       expect(screen.getByText('Experience')).toBeInTheDocument();
     });
 
-    it('renders the "Personal Projects" section heading', () => {
+    it('does not render a Personal Projects section on this page', () => {
       renderExperience();
-      expect(screen.getByText('Personal Projects')).toBeInTheDocument();
+      expect(screen.queryByText('Personal Projects')).not.toBeInTheDocument();
     });
 
-    it('renders the technologies section heading', () => {
+    it('renders the technical skills section heading', () => {
+      renderExperience();
+      expect(screen.getByText('Technical Skills')).toBeInTheDocument();
+    });
+  });
+
+  describe('work experience roles', () => {
+    it('renders the three current roles in order', () => {
+      renderExperience();
+      const ito = screen.getByText(/Ito\.ai \| Remote Software Engineer/i);
+      const sde2 = screen.getByText(
+        /Amazon \| Software Development Engineer II/i,
+      );
+      const sde = screen.getByText(
+        /Amazon \| Software Development Engineer(?! II)/i,
+      );
+      expect(
+        ito.compareDocumentPosition(sde2) & Node.DOCUMENT_POSITION_FOLLOWING,
+      ).toBeTruthy();
+      expect(
+        sde2.compareDocumentPosition(sde) & Node.DOCUMENT_POSITION_FOLLOWING,
+      ).toBeTruthy();
+    });
+
+    it('renders role date ranges without location text', () => {
+      renderExperience();
+      expect(screen.getByText(/May 2026 – Present/)).toBeInTheDocument();
+      expect(screen.getByText(/July 2022 – May 2026/)).toBeInTheDocument();
+      expect(screen.getByText(/June 2021 – July 2022/)).toBeInTheDocument();
+      expect(screen.queryByText(/Austin, Texas/i)).not.toBeInTheDocument();
+      expect(screen.queryByText(/Austin, TX/i)).not.toBeInTheDocument();
+    });
+
+    it('renders Ito hybrid content with intro and highlight bullets', () => {
+      renderExperience();
+      expect(screen.getByText(/AI QA agent/i)).toBeInTheDocument();
+      expect(
+        screen.getByText(/37% customer bug-resolution/i),
+      ).toBeInTheDocument();
+      expect(screen.getByText(/TypeScript\/Fastify/i)).toBeInTheDocument();
+      expect(
+        screen.getByText(/Langfuse evaluation platform/i),
+      ).toBeInTheDocument();
+      expect(screen.getByText(/151 PRs/i)).toBeInTheDocument();
+    });
+
+    it('renders Amazon SDE II highlight bullets', () => {
+      renderExperience();
+      expect(screen.getByText(/100\+PB\/day/i)).toBeInTheDocument();
+      expect(screen.getByText(/\$7\.12M/i)).toBeInTheDocument();
+      expect(screen.getByText(/AWS Bedrock/i)).toBeInTheDocument();
+    });
+
+    it('renders Amazon SDE highlight bullets', () => {
       renderExperience();
       expect(
-        screen.getByText(
-          'Most familiar programming languages and technologies',
+        screen.getByText(/4,000\+ fulfillment center/i),
+      ).toBeInTheDocument();
+      expect(screen.getByText(/6B\+ monthly requests/i)).toBeInTheDocument();
+      expect(screen.getByText(/canary infrastructure/i)).toBeInTheDocument();
+    });
+
+    it('does not render dropped intern or ESiMi roles', () => {
+      renderExperience();
+      expect(
+        screen.queryByText(/Software Development Engineer Intern/i),
+      ).not.toBeInTheDocument();
+      expect(screen.queryByText(/ESiMi/i)).not.toBeInTheDocument();
+      expect(
+        screen.queryByText(
+          /accommodations tool for Amazon fulfillment center/i,
         ),
-      ).toBeInTheDocument();
+      ).not.toBeInTheDocument();
+    });
+
+    it('does not render old personal project cards', () => {
+      renderExperience();
+      expect(
+        screen.queryByText('Product Landing Page'),
+      ).not.toBeInTheDocument();
+      expect(
+        screen.queryByText('Technical Documentation Page'),
+      ).not.toBeInTheDocument();
+      expect(screen.queryByText('Research Article')).not.toBeInTheDocument();
     });
   });
 
-  describe('work experience content', () => {
-    it('renders the Amazon internship title', () => {
+  describe('technical skills', () => {
+    it('renders categorized skill labels', () => {
       renderExperience();
-      expect(
-        screen.getByText(/Amazon.com - Software Development Engineer Intern/i),
-      ).toBeInTheDocument();
+      expect(screen.getByText(/Languages:/i)).toBeInTheDocument();
+      expect(screen.getByText(/AWS:/i)).toBeInTheDocument();
+      expect(screen.getByText(/Data & infra:/i)).toBeInTheDocument();
+      expect(screen.getByText(/Frontend:/i)).toBeInTheDocument();
     });
 
-    it('renders the Amazon internship description', () => {
+    it('renders resume-aligned skill items', () => {
       renderExperience();
-      expect(
-        screen.getByText(/accommodations tool for Amazon fulfillment center/i),
-      ).toBeInTheDocument();
+      const skillLine = (label: RegExp) =>
+        screen.getByText(label).closest('p')?.textContent ?? '';
+      expect(skillLine(/Languages:/i)).toMatch(/Scala.*TypeScript/);
+      expect(skillLine(/AWS:/i)).toMatch(/Bedrock/);
+      expect(skillLine(/Data & infra:/i)).toMatch(/FS2/);
+      expect(skillLine(/Frontend:/i)).toMatch(/React/);
     });
 
-    it('renders the ESiMi internship title', () => {
+    it('does not render the old tech logo grid', () => {
       renderExperience();
-      expect(
-        screen.getByText(/ESiMi - UI\/UX Design Intern/i),
-      ).toBeInTheDocument();
-    });
-
-    it('renders the ESiMi internship description', () => {
-      renderExperience();
-      expect(
-        screen.getByText(/ambient-energy devices like bike lights/i),
-      ).toBeInTheDocument();
-    });
-  });
-
-  describe('project cards', () => {
-    it('renders the Product Landing Page project card', () => {
-      renderExperience();
-      expect(screen.getByText('Product Landing Page')).toBeInTheDocument();
-    });
-
-    it('renders the Technical Documentation Page project card', () => {
-      renderExperience();
-      expect(
-        screen.getByText('Technical Documentation Page'),
-      ).toBeInTheDocument();
-    });
-
-    it('renders the Research Article project card', () => {
-      renderExperience();
-      expect(screen.getByText('Research Article')).toBeInTheDocument();
-    });
-  });
-
-  describe('tech logo images', () => {
-    it('renders the Git logo', () => {
-      renderExperience();
-      expect(screen.getByAltText('Git logo')).toBeInTheDocument();
-    });
-
-    it('renders the AWS logo', () => {
-      renderExperience();
-      expect(screen.getByAltText('AWS logo')).toBeInTheDocument();
-    });
-
-    it('renders the Docker logo', () => {
-      renderExperience();
-      expect(screen.getByAltText('Docker logo')).toBeInTheDocument();
+      expect(screen.queryByAltText('Git logo')).not.toBeInTheDocument();
+      expect(screen.queryByAltText('AWS logo')).not.toBeInTheDocument();
+      expect(screen.queryByAltText('Docker logo')).not.toBeInTheDocument();
     });
   });
 });

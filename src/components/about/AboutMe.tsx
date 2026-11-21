@@ -39,21 +39,19 @@ const AboutMe = () => {
         <Grid container sx={paperTextContainerSx}>
           <Grid item xs={6}>
             <Typography sx={paperTextSx}>
-              I&apos;m a rising senior at St. Edward&apos;s University where
-              I&apos;m majoring in Computer Science. I consider myself a
-              full-stack developer because I enjoy any technical challenge –
-              both visual and non-visual. What I love most about software
-              development is working in agile scrum teams to iteratively deliver
-              products aligned to fulfill customer needs and meet business
-              requirements.
+              I&apos;m a Software Development Engineer at Ito.ai, and previously
+              an SDE II at Amazon. I focus on distributed systems, cloud
+              architecture, AI-driven automation, operational excellence, and
+              mentoring engineers — shipping reliable services and helping teams
+              grow.
             </Typography>
             <Typography sx={paperTextSx}>
-              Outside of school I help organize a weekly &quot;Cracking the
-              Coding&quot; meetup group that helps prospective software
-              developers prepare for their technical interviews. In my free time
-              I enjoy PC gaming, writing music, and spending time with friends
-              and family. I&apos;m also a big fan of sports and enjoy watching
-              the English Premier League and NFL every year.
+              I earned a B.S. in Computer Science from St. Edward&apos;s
+              University (Class of 2021), graduating with a 4.0 GPA as
+              Co-Valedictorian and Outstanding Computer Science Graduate. In my
+              free time I enjoy PC gaming, writing music, spending time with
+              friends and family, and sports — especially the English Premier
+              League and the NFL.
             </Typography>
           </Grid>
           <Grid item xs={6}>
