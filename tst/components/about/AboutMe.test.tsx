@@ -23,14 +23,45 @@ describe('AboutMe', () => {
       expect(screen.getByText('A Software Developer')).toBeInTheDocument();
     });
 
-    it('renders the biography paragraph mentioning full-stack developer', () => {
+    it('renders professional SDE framing with Ito and Amazon', () => {
       renderAboutMe();
-      expect(screen.getByText(/full-stack developer/i)).toBeInTheDocument();
+      expect(screen.getByText(/Ito\.ai/i)).toBeInTheDocument();
+      expect(screen.getByText(/Amazon/i)).toBeInTheDocument();
+      expect(
+        screen.getByText(/Software Development Engineer/i),
+      ).toBeInTheDocument();
     });
 
-    it('renders the second biography paragraph mentioning the coding meetup', () => {
+    it('renders soft career interests without an explicit seeking statement', () => {
       renderAboutMe();
-      expect(screen.getByText(/Cracking the Coding/i)).toBeInTheDocument();
+      expect(screen.getByText(/distributed systems/i)).toBeInTheDocument();
+      expect(
+        screen.getByText(/AI.?driven automation|AI automation/i),
+      ).toBeInTheDocument();
+      expect(screen.queryByText(/seeking/i)).not.toBeInTheDocument();
+    });
+
+    it('renders education credentials for Class of 2021', () => {
+      renderAboutMe();
+      expect(screen.getByText(/St\. Edward/i)).toBeInTheDocument();
+      expect(screen.getByText(/Class of 2021/i)).toBeInTheDocument();
+      expect(screen.getByText(/4\.0/)).toBeInTheDocument();
+      expect(screen.getByText(/Co-Valedictorian/i)).toBeInTheDocument();
+      expect(
+        screen.getByText(/Outstanding Computer Science Graduate/i),
+      ).toBeInTheDocument();
+    });
+
+    it('renders personal interests without the coding meetup', () => {
+      renderAboutMe();
+      expect(screen.getByText(/gaming/i)).toBeInTheDocument();
+      expect(screen.getByText(/music/i)).toBeInTheDocument();
+      expect(screen.getByText(/friends and family/i)).toBeInTheDocument();
+      expect(screen.getByText(/sports/i)).toBeInTheDocument();
+      expect(
+        screen.queryByText(/Cracking the Coding/i),
+      ).not.toBeInTheDocument();
+      expect(screen.queryByText(/rising senior/i)).not.toBeInTheDocument();
     });
 
     it('renders the CES photo with the correct alt text', () => {

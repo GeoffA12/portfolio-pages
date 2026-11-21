@@ -29,15 +29,16 @@ describe('MenuButton', () => {
       renderMenuButton();
       expect(screen.queryByText('About Me')).not.toBeInTheDocument();
       expect(screen.queryByText('Experience')).not.toBeInTheDocument();
+      expect(screen.queryByText('Personal Projects')).not.toBeInTheDocument();
     });
   });
 
   describe('opening the menu', () => {
-    it('shows "About Me" and "Experience" items after clicking the menu button', async () => {
+    it('shows About Me, Experience, and Personal Projects in order', async () => {
       const { user } = renderMenuButton();
       await user.click(screen.getByRole('button', { name: /menu/i }));
-      expect(screen.getByText('About Me')).toBeInTheDocument();
-      expect(screen.getByText('Experience')).toBeInTheDocument();
+      const items = screen.getAllByRole('menuitem').map((el) => el.textContent);
+      expect(items).toEqual(['About Me', 'Experience', 'Personal Projects']);
     });
 
     it('closes the menu after clicking the menu button a second time', async () => {
@@ -78,6 +79,15 @@ describe('MenuButton', () => {
       await user.click(screen.getByText('Experience'));
       await waitFor(() => {
         expect(screen.queryByText('Experience')).not.toBeInTheDocument();
+      });
+    });
+
+    it('closes the menu after clicking "Personal Projects"', async () => {
+      const { user } = renderMenuButton();
+      await user.click(screen.getByRole('button', { name: /menu/i }));
+      await user.click(screen.getByText('Personal Projects'));
+      await waitFor(() => {
+        expect(screen.queryByText('Personal Projects')).not.toBeInTheDocument();
       });
     });
   });

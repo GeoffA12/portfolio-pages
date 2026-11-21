@@ -3,80 +3,47 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
+import type { SxProps, Theme } from '@mui/material';
 import {
   headerTextContainerSx,
   paperTextContainerSx,
   headerTextSx,
   paperTextSx,
 } from '../../common/styles/SharedStyles';
-import CardRow from './CardRow';
-import type { ProjectImage } from './ProjectCard';
-import type { TechImage } from './ExperienceCard';
 
-function normalizeImageData<T>(arr: T[]): T[][] {
-  const nestedImageData: T[][] = [];
-  let nestedImageCounter = -1;
-  for (let x = 0; x < arr.length; ++x) {
-    if (x % 3 === 0) {
-      nestedImageData.push([]);
-      nestedImageCounter++;
-    }
-    nestedImageData[nestedImageCounter].push(arr[x]);
-  }
-  return nestedImageData;
-}
+const roleTitleSx: SxProps<Theme> = {
+  fontSize: '2em',
+  p: 2,
+  mt: 1,
+  fontFamily: 'Quicksand, sans-serif',
+  color: 'rgb(192, 224, 237)',
+};
+
+const roleDateSx: SxProps<Theme> = {
+  fontSize: '1.1em',
+  color: 'rgb(192, 224, 237)',
+  fontFamily: 'Roboto, sans-serif',
+  mt: 0,
+  pt: 0,
+  pb: 0,
+  pl: 3,
+  pr: 3,
+  lineHeight: '45px',
+};
+
+const bulletListSx: SxProps<Theme> = {
+  fontSize: '1.3em',
+  color: 'white',
+  fontFamily: 'Roboto, sans-serif',
+  mt: 0,
+  pt: 0,
+  pb: 3,
+  pl: 5,
+  pr: 3,
+  lineHeight: '45px',
+};
 
 const Experience = () => {
-  const projectImageData: ProjectImage[] = [
-    {
-      imgSrc:
-        'https://res.cloudinary.com/geoffj7/image/upload/v1562230466/ProductLandingPage2_clei1m.jpg',
-      imgAlt: 'Product landing page preview',
-      link: 'https://codepen.io/geoff-arroyo/full/WBJNvb',
-      text: 'Product Landing Page',
-    },
-    {
-      imgSrc:
-        'https://res.cloudinary.com/geoffj7/image/upload/v1562230522/TechnicalDocumentation2_ocfu6a.jpg',
-      imgAlt: 'Tech doc preview',
-      link: 'https://codepen.io/geoff-arroyo/full/zQyeoz',
-      text: 'Technical Documentation Page',
-    },
-    {
-      imgSrc:
-        'https://res.cloudinary.com/geoffj7/image/upload/v1562230522/TributePage2_ju5a7m.jpg',
-      imgAlt: 'Tribute Page Preview',
-      link: 'https://codepen.io/candy4all-432/full/rgwzYJ',
-      text: 'Tribute Page',
-    },
-    {
-      imgSrc:
-        'https://res.cloudinary.com/geoffj7/image/upload/v1569214669/researchPreview_wyxf3e.jpg',
-      imgAlt: 'Research article preview',
-      link: 'https://www.researchgate.net/publication/333005159_Pair_Programming_in_the_Classroom_How_can_collaborative_exercises_be_further_extended_into_educational_environments',
-      text: 'Research Article',
-    },
-    {
-      imgSrc:
-        'https://res.cloudinary.com/geoffj7/image/upload/v1562230521/EsimiLogo1_ewnbjv.jpg',
-      imgAlt: 'ESiMi logo',
-      link: 'https://www.youtube.com/watch?v=QHPxbUbtfiY&feature=youtu.be',
-      text: 'ESiMi Shark Tank Audition Video',
-    },
-  ];
-
-  const experienceImageData: TechImage[] = [
-    { imgSrc: 'https://i.imgur.com/WS2N5Gx.png', imgAlt: 'Git logo' },
-    { imgSrc: 'https://i.imgur.com/8VH4cGr.jpg', imgAlt: 'AWS logo' },
-    { imgSrc: 'https://i.imgur.com/ZKkBc1J.jpg', imgAlt: 'Java logo' },
-    { imgSrc: 'https://i.imgur.com/2iTXiCh.png', imgAlt: 'React logo' },
-    { imgSrc: 'https://i.imgur.com/Qkq7mco.png', imgAlt: 'Kotlin logo' },
-    { imgSrc: 'https://i.imgur.com/6GPW3sG.jpg', imgAlt: 'MongoDB logo' },
-    { imgSrc: 'https://i.imgur.com/IQE5DJA.png', imgAlt: 'Docker logo' },
-    { imgSrc: 'https://i.imgur.com/e8Bvv9E.png', imgAlt: 'Java spring logo' },
-    { imgSrc: 'https://i.imgur.com/TOnpZc9.png', imgAlt: 'MySQL logo' },
-  ];
-
   return (
     <>
       <Grid container direction='column'>
@@ -86,107 +53,143 @@ const Experience = () => {
         <Grid item xs>
           <Card sx={paperTextContainerSx}>
             <CardContent>
-              <Typography
-                sx={{
-                  fontSize: '2em',
-                  p: 2,
-                  mt: 1,
-                  fontFamily: 'Quicksand, sans-serif',
-                  color: 'rgb(192, 224, 237)',
-                }}
-              >
-                <img
-                  src='https://www.vectorlogo.zone/logos/amazon/amazon-ar21.svg'
-                  alt='amazon logo'
-                  style={{
-                    width: 'auto',
-                    height: '10vh',
-                    objectFit: 'cover',
-                    display: 'inline',
-                  }}
-                />
-                Amazon.com - Software Development Engineer Intern
+              <Typography sx={roleTitleSx}>
+                Ito.ai | Remote Software Engineer
               </Typography>
+              <Typography sx={roleDateSx}>May 2026 – Present</Typography>
               <Typography sx={paperTextSx}>
-                Over the Summer of 2020 while at Amazon, a solid foundation of
-                the software development lifecycle and service-oriented
-                architecture was set in place. I designed, implemented, and
-                tested an accommodations tool for Amazon fulfillment center
-                associates to use upon workplace injury. I built accommodations
-                API&apos;s by using Kotlin data classes and an infrastructure
-                including but not limited to Amazon DynamoDB, AWS API Gateway,
-                and AWS AppSync. I built UI components for my intern project
-                using React.js to support text internationalization, user
-                profile integration, and responsive design.
+                Building AI quality, evaluation, and automation platforms that
+                help customer engineering teams ship safer software faster.
               </Typography>
+              <Typography component='ul' sx={bulletListSx}>
+                <li>
+                  <strong>AI Test Quality:</strong> Rebuilt an AI QA
+                  agent&apos;s bug-report evidence to derive from source code
+                  and match an adversarial LLM judge&apos;s verdicts; shipped
+                  via shadow-mode rollout with telemetry, contributing to a
+                  record 37% customer bug-resolution rate.
+                </li>
+                <li>
+                  <strong>Internal API Service:</strong> Designed and launched a
+                  TypeScript/Fastify service on ECS Fargate (AWS CDK) with
+                  Argon2id API keys and rate-limited, retry-safe endpoints to
+                  trigger and cancel pipeline runs; moved the 11K-line
+                  pipeline-launch code path into a shared package using Claude
+                  to improve maintainability.
+                </li>
+                <li>
+                  <strong>LLM Evaluation Platform:</strong> Built a Langfuse
+                  evaluation platform (golden datasets, test-plan
+                  recall/precision scoring, planner-only replay, prompt CI gate)
+                  to validate cost-efficient models before release, enabling a
+                  13× drop in cost per run (to $1.59) and a 62% drop in average
+                  runtime (101 → 38 min).
+                </li>
+                <li>
+                  <strong>AI Automation:</strong> Built an MCP server letting AI
+                  agents investigate, trigger and cancel test runs across 658
+                  customer repos, and an AI-driven workflow that auto-opens fix
+                  PRs when dependency security audits fail, improving deployment
+                  speed by 2x.
+                </li>
+                <li>
+                  <strong>Engineering Leadership:</strong> Shipped 151 PRs and
+                  reviewed 113 in 4 months on an 8-engineer team; created the
+                  company&apos;s Claude Code plugin marketplace, standardizing 5
+                  AI skills across all engineers.
+                </li>
+              </Typography>
+
+              <Typography sx={roleTitleSx}>
+                Amazon | Software Development Engineer II
+              </Typography>
+              <Typography sx={roleDateSx}>July 2022 – May 2026</Typography>
               <Typography sx={paperTextSx}>
-                Good programming practice was developed through code review
-                feedback from senior engineers on the team who left comments on
-                my pull requests. Over 5000 lines of code were approved by
-                senior engineers during the development process of this
-                internship. The intern project I worked was deployed to multiple
-                AWS regions in Asia, Europe, and North America.
+                Led ownership of large-scale security log data platforms and
+                AI-assisted tooling that cut cost, toil, and operational load.
               </Typography>
-              <Typography
-                sx={{
-                  fontSize: '2em',
-                  p: 2,
-                  mt: 1,
-                  fontFamily: 'Quicksand, sans-serif',
-                  color: 'rgb(192, 224, 237)',
-                }}
-              >
-                <img
-                  src='https://images.crunchbase.com/image/upload/c_pad,h_160,w_160,f_auto,b_white,q_auto:eco,dpr_2/kptprz3bd0alibati6j9?ik-sanitizeSvg=true'
-                  alt='esimi logo'
-                  style={{
-                    width: 'auto',
-                    height: '10vh',
-                    objectFit: 'cover',
-                    display: 'inline',
-                  }}
-                />
-                ESiMi - UI/UX Design Intern
+              <Typography component='ul' sx={bulletListSx}>
+                <li>
+                  <strong>Big Data Leadership:</strong> Lead ownership of
+                  security log data platforms processing 100+PB/day; engineered
+                  an optimized ingestion platform that realized $7.12M in annual
+                  cost savings.
+                </li>
+                <li>
+                  <strong>AI Automation:</strong> Architected internal tools
+                  using AWS Bedrock and Claude Sonnet, reducing manual developer
+                  toil by 8 hours per week.
+                </li>
+                <li>
+                  <strong>Scalability &amp; Migration:</strong> Unblocked the
+                  migration of 300+ critical datasets via custom file compaction
+                  and streaming implementations using FS2 and Scala.
+                </li>
+                <li>
+                  <strong>Operational Excellence:</strong> Reduced monthly
+                  operational ticket volume by 106/month through automated alarm
+                  analysis and infrastructure hardening.
+                </li>
+                <li>
+                  <strong>Mentorship:</strong> Actively lead sprint grooming,
+                  design reviews, and the technical growth of junior SDEs.
+                </li>
               </Typography>
+
+              <Typography sx={roleTitleSx}>
+                Amazon | Software Development Engineer
+              </Typography>
+              <Typography sx={roleDateSx}>June 2021 – July 2022</Typography>
               <Typography sx={paperTextSx}>
-                ESiMi is a startup building ambient-energy devices like bike
-                lights which aren&apos;t powered by batteries but through the
-                vibrations of the bike on the road. Working for a clean-tech
-                startup like ESiMi introduced me to a wide variety of technical
-                roles.
+                Built fulfillment-center risk systems and deployment automation
+                for high-throughput AWS services.
               </Typography>
-              <Typography sx={paperTextSx}>
-                I helped bulid the startup logo design and social media profile
-                headers on the ESiMi Facebook and Twitter accounts prior to our
-                demo at CES 2018 in Las Vegas. Using Adobe Photoshop, I mocked
-                UI landing and biography pages for the startup site and
-                implemented a startup business card design and t-shirt. Another
-                project I worked on was filming and editing the company Shark
-                Tank Audition video after our startup had made it to the second
-                round of the Shark Tank audition process.
+              <Typography component='ul' sx={bulletListSx}>
+                <li>
+                  <strong>System Design:</strong> Developed a global risk
+                  assessment module (AWS Lambda, SQS, DynamoDB) supporting
+                  4,000+ fulfillment center executions.
+                </li>
+                <li>
+                  <strong>Performance Optimization:</strong> Boosted AWS Lambda
+                  performance by 80% through eager initialization and API
+                  tuning, managing a load of 6B+ monthly requests.
+                </li>
+                <li>
+                  <strong>CI/CD:</strong> Built robust canary infrastructure
+                  with automated rollbacks, cutting manual deployment overhead
+                  by 50%.
+                </li>
               </Typography>
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs sx={headerTextContainerSx}>
-          <Typography sx={headerTextSx}>Personal Projects</Typography>
-        </Grid>
-
-        <CardRow
-          nestedImageArray={normalizeImageData(projectImageData)}
-          cardType={'Project'}
-        />
 
         <Grid item xs sx={headerTextContainerSx}>
-          <Typography sx={headerTextSx}>
-            Most familiar programming languages and technologies
-          </Typography>
+          <Typography sx={headerTextSx}>Technical Skills</Typography>
         </Grid>
-
-        <CardRow
-          nestedImageArray={normalizeImageData(experienceImageData)}
-          cardType={'Experience'}
-        />
+        <Grid item xs>
+          <Card sx={paperTextContainerSx}>
+            <CardContent>
+              <Typography sx={paperTextSx}>
+                <strong>Languages:</strong> Scala, Kotlin, Java, Python,
+                TypeScript
+              </Typography>
+              <Typography sx={paperTextSx}>
+                <strong>AWS:</strong> Bedrock (Claude Sonnet), Lambda, DynamoDB,
+                SQS, SNS, AppSync, CloudWatch, API Gateway, ECS Fargate, CDK
+              </Typography>
+              <Typography sx={paperTextSx}>
+                <strong>Data &amp; infra:</strong> FS2, Spark, Hadoop, Docker,
+                Kubernetes, CI/CD, Parquet, Fastify, Langfuse
+              </Typography>
+              <Typography sx={paperTextSx}>
+                <strong>Frontend:</strong> React, UI/UX Design, Responsive
+                Design
+              </Typography>
+            </CardContent>
+          </Card>
+        </Grid>
       </Grid>
     </>
   );

@@ -4,6 +4,7 @@ import PrimaryAppBar from './common/components/PrimaryAppBar';
 import AboutMe from './components/about/AboutMe';
 import Landing from './components/landing/Landing';
 import Experience from './components/experience/Experience';
+import PersonalProjects from './components/projects/PersonalProjects';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Route path='/' element={<Landing />} />
         <Route path='/aboutMe' element={<AboutMe />} />
         <Route path='/experience' element={<Experience />} />
+        <Route path='/personalProjects' element={<PersonalProjects />} />
       </Routes>
     </div>
   );
