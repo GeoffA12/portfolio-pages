@@ -26,10 +26,51 @@ describe('ExperienceCard', () => {
       expect(screen.getByAltText('Java logo')).toBeInTheDocument();
     });
 
-    it('renders exactly three images', () => {
+    it('renders one image per item in a three-item array', () => {
       render(<ExperienceCard imageArray={mockImageArray} />);
       const images = screen.getAllByRole('img');
       expect(images).toHaveLength(3);
+    });
+
+    it('renders no images for an empty array', () => {
+      const { container } = render(<ExperienceCard imageArray={[]} />);
+      expect(container.querySelectorAll('img')).toHaveLength(0);
+    });
+
+    it('renders a single image for a one-item array', () => {
+      render(
+        <ExperienceCard
+          imageArray={[
+            { imgSrc: 'https://example.com/git.png', imgAlt: 'Git logo' },
+          ]}
+        />,
+      );
+      expect(screen.getAllByRole('img')).toHaveLength(1);
+      expect(screen.getByAltText('Git logo')).toBeInTheDocument();
+    });
+
+    it('renders all images for a two-item array without throwing', () => {
+      render(
+        <ExperienceCard
+          imageArray={[
+            { imgSrc: 'https://example.com/git.png', imgAlt: 'Git logo' },
+            { imgSrc: 'https://example.com/aws.png', imgAlt: 'AWS logo' },
+          ]}
+        />,
+      );
+      expect(screen.getAllByRole('img')).toHaveLength(2);
+      expect(screen.getByAltText('Git logo')).toBeInTheDocument();
+      expect(screen.getByAltText('AWS logo')).toBeInTheDocument();
+    });
+
+    it('renders every image when the array has more than three items', () => {
+      const fourImages: TechImage[] = [
+        ...mockImageArray,
+        { imgSrc: 'https://example.com/react.png', imgAlt: 'React logo' },
+      ];
+      render(<ExperienceCard imageArray={fourImages} />);
+      expect(screen.getAllByRole('img')).toHaveLength(4);
+      expect(screen.getByAltText('React logo')).toBeInTheDocument();
     });
   });
 });

@@ -23,4 +23,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+/.scratch
 CODEBASE_ANALYSIS.md
